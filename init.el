@@ -47,7 +47,9 @@
 (setq browser-url-browser-function 'browse-url-generic
       browse-url-generic-program "qutebrowser")
 
-;; Global Keybindings
+;; Global Keybindings (Deprecating)
+;; FIXME I don't know where to put this, so for now, it goes here.
+(global-set-key (kbd "C-c c p") 'package-install)
 
 ;; Modeline Settings
 (setq display-time-string-forms
@@ -59,25 +61,47 @@
 	       mode-line-front-space
 	       mode-line-modified
 	       mode-line-buffer-identification
-	       " "
+	       mode-line-in-non-selected-windows nil
+	       mode-line-modes
 	       mode-line-misc-info
 	       mode-line-end-spaces))
 (display-time-mode t)
-;;(global-emojify-mode t)
+(use-package emojify-mode
+  :init
+  (defun erc-emoji-mode-hook () (emojify-mode t))
+  :hook
+  ('erc-mode-hook 'erc-emoji-mode-hook)
+  )
 
 ;; Diminish Settings
 (use-package diminish
-  :ensure t)
+  :ensure t
+  :config
+  (diminish 'company-mode " ¢")
+  (diminish 'ivy-mode " i")
+  )
 
 ;; Magit Settings
 (use-package magit
   :ensure t
   :bind
   ("C-c g m" . magit-status))
+;; (use-package forge
+;;   :after magit
+;;   :bind
+;;   :init
+;;   (ghub-request "GET" "/user" nil
+;; 		:forge 'github
+;; 		:host "api.github.com"
+;; 		:username "brbetances"
+;; 		:auth 'forge)
+;;   :config
+;;   )
 (use-package gist
   :ensure t
   :bind
   ("C-c g b" . gist-buffer))
+
 ;; Ido Settings
 (use-package ido
   :init
@@ -241,21 +265,15 @@
   ("C-c o" . hl-todo-occur)
   :init
   (setq hl-todo-keyword-faces
-	'(("HOLD" . "#EE7788")
-	  ("TODO" . "#5EC4FF")
-	  ("NEXT" . "#5EC4FF")
-	  ("THEM" . "#EE7788")
-	  ("PROG" . "#8BD49C")
-	  ("OKAY" . "#8BD49C")
-	  ("DONT" . "#EEBB88")
-	  ("FAIL" . "#D95468")
-	  ("DONE" . "#A0B3C5")
-	  ("NOTE" . "#5EC4FF")
-	  ("HACK" . "#FFFFFF")
-	  ("TEMP" . "#FFFFFF")
+	'(("HOLD" . "#EE7788")	  ("TODO" . "#5EC4FF")
+	  ("NEXT" . "#5EC4FF")	  ("THEM" . "#EE7788")
+	  ("PROG" . "#8BD49C")	  ("OKAY" . "#8BD49C")
+	  ("DONT" . "#EEBB88")	  ("FAIL" . "#D95468")
+	  ("DONE" . "#A0B3C5")	  ("NOTE" . "#5EC4FF")
+	  ("HACK" . "#FFFFFF")	  ("TEMP" . "#FFFFFF")
 	  ("FIXME" . "#D95468")))
   :config
-  (global-hl-todo-mode t)
+  (global-hl-todo-mode 1)
   )
 
 ;; NOTE Create erc-config.el, and set `erc-password', or comment out the next line.
