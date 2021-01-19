@@ -47,9 +47,9 @@
 
 (defvar font-lock-custom-comment-tag-face-warning 'font-lock-custom-comment-tag-face-warning "Face name to use for `custom-comment-tag-alist-warning' tags.")
 
-(defface font-lock-custom-comment-tag-face-comment '((t (:foreground "#fdfdfd"))) "Font lock face to highlight custom `custom-comment-tag-alist-comment' tags." :group 'font-lock-faces)
+(defface font-lock-custom-comment-tag-face-comment '((t (:foreground "#008B94"))) "Font lock face to highlight custom `custom-comment-tag-alist-comment' tags." :group 'font-lock-faces)
 
-(defface font-lock-custom-comment-tag-face-warning '((t (:foreground "#ebbf83"))) "Font lock face to highlight custom `custom-comment-tag-alist-warning' tags." :group 'font-lock-faces)
+(defface font-lock-custom-comment-tag-face-warning '((t (:foreground "#D95468"))) "Font lock face to highlight custom `custom-comment-tag-alist-warning' tags." :group 'font-lock-faces)
 
 
 (defvar custom-comment-tag-mode-hooks

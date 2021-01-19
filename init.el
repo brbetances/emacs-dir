@@ -4,11 +4,13 @@
 
 ;; Package Settings
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "user-lisp"))
+(add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "custom-modes"))
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 ;; Surpress Custom
 (setq custom-file (concat user-emacs-directory "/custom.el")) 
 
+;; Custom Comment Settings (Deprecated)
 ;; Appearance Settings
 (use-package doom-city-lights-theme)
 (if (daemonp)
@@ -60,7 +62,7 @@
 	       mode-line-misc-info
 	       mode-line-end-spaces))
 (display-time-mode t)
-;; (global-emojify-mode t)
+(global-emojify-mode t)
 
 ;; Diminish Settings
 (use-package diminish)
@@ -197,6 +199,7 @@
   :init
   (global-company-mode 1))
 
+;; Ivy Mode
 (use-package ivy
   :bind
   :init
@@ -221,8 +224,10 @@
   :bind
   ("<f12>" . linum-mode))
 
-;; ERC Settings
+;; Create erc-config.el, and set `erc-password', or comment out the next line.
 (use-package erc-config)
+
+ ;; ERC Settings
 (use-package erc
   :bind
   ("C-<f3>" . erc-run-or-raise)
