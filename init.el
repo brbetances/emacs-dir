@@ -282,7 +282,7 @@
  ;; ERC Settings
 (use-package erc
   :bind
-  ("C-<f3>" . erc-run-or-raise)
+  ("C-c e" . erc-run-or-raise)
   :init
   (setq erc-hide-list '("QUIT" "PART" "JOIN" "NICK")
 	erc-server "irc.freenode.net"
