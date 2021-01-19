@@ -10,7 +10,6 @@
 ;; Surpress Custom
 (setq custom-file (concat user-emacs-directory "/custom.el")) 
 
-;; Custom Comment Settings (Deprecated)
 ;; Appearance Settings
 (use-package doom-city-lights-theme)
 (if (daemonp)
@@ -26,6 +25,7 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (fringe-mode '(nil . 1))
+(global-hl-line-mode t)
 (show-paren-mode t)
 (setq x-select-enable-clipboard t
       x-select-enable-primary t
@@ -62,7 +62,7 @@
 	       mode-line-misc-info
 	       mode-line-end-spaces))
 (display-time-mode t)
-(global-emojify-mode t)
+;;(global-emojify-mode t)
 
 ;; Diminish Settings
 (use-package diminish)
@@ -219,12 +219,28 @@
   (:map emacs-lisp-mode-map
 	("C-c C-c" . eval-buffer)))
 
-;; Minor Mode Settings
+;; Global Mode Settings
 (use-package linum-mode
   :bind
   ("<f12>" . linum-mode))
 
-;; Create erc-config.el, and set `erc-password', or comment out the next line.
+(use-package hl-todo
+  :bind
+  ("C-c i" . hl-todo-insert)
+  ("C-c p" . hl-todo-previous)
+  ("C-c n" . hl-todo-next)
+  ("C-c o" . hl-todo-occur)
+  :init
+  (setq hl-todo-keyword-faces
+	'(("HOLD" . "#EE7788")	  ("TODO" . "#5EC4FF")
+	  ("NEXT" . "#5EC4FF")    ("THEM" . "#EE7788")
+	  ("PROG" . "#8BD49C")	  ("OKAY" . "#8BD49C")
+	  ("DONT" . "#EEBB88")	  ("FAIL" . "#D95468")
+	  ("DONE" . "#A0B3C5")	  ("NOTE" . "#5EC4FF")
+	  ("HACK" . "#FFFFFF")	  ("TEMP" . "#FFFFFF")
+	  ("FIXME" . "#D95468"))))
+
+;; NOTE Create erc-config.el, and set `erc-password', or comment out the next line.
 (use-package erc-config)
 
  ;; ERC Settings
@@ -246,6 +262,9 @@
 	erc-mode-line-format "%t %a"
 	erc-auto-query 'bury
 	erc-max-buffer-size 15000
+	erc-fill-prefix "    "
+	erc-fill-column 90
+	erc-fill-mode 0
 	erc-truncate-buffer-on-save t
 	erc-track-position-in-mode-line t
 	erc-header-line-format nil
