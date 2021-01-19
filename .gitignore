@@ -2,7 +2,6 @@
 /#init.el#
 /auto-save-list/
 /custom.el~
-/elpa/
 /emojis/
 /ido.last
 /ido.last~
@@ -13,4 +12,6 @@
 /user-lisp/custom-functions.el~
 /transient/
 /user-lisp/erc-config.el
+
+/elpa/
 /custom.el
