@@ -11,7 +11,8 @@
 (setq custom-file (concat user-emacs-directory "/custom.el")) 
 
 ;; Appearance Settings
-(use-package doom-city-lights-theme)
+(use-package doom-themes
+  :ensure t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
 	      (lambda (frame)
@@ -65,13 +66,18 @@
 ;;(global-emojify-mode t)
 
 ;; Diminish Settings
-(use-package diminish)
+(use-package diminish
+  :ensure t)
 
 ;; Magit Settings
 (use-package magit
+  :ensure t
   :bind
-  ("C-<f5>" . magit-status))
-
+  ("C-c g m" . magit-status))
+(use-package gist
+  :ensure t
+  :bind
+  ("C-c g b" . gist-buffer))
 ;; Ido Settings
 (use-package ido
   :init
@@ -196,11 +202,13 @@
 
 ;; Company Mode
 (use-package company
+  :ensure t
   :init
   (global-company-mode 1))
 
 ;; Ivy Mode
 (use-package ivy
+  :ensure t
   :bind
   :init
   :config
@@ -225,6 +233,7 @@
   ("<f12>" . linum-mode))
 
 (use-package hl-todo
+  :ensure t
   :bind
   ("C-c i" . hl-todo-insert)
   ("C-c p" . hl-todo-previous)
@@ -232,13 +241,22 @@
   ("C-c o" . hl-todo-occur)
   :init
   (setq hl-todo-keyword-faces
-	'(("HOLD" . "#EE7788")	  ("TODO" . "#5EC4FF")
-	  ("NEXT" . "#5EC4FF")    ("THEM" . "#EE7788")
-	  ("PROG" . "#8BD49C")	  ("OKAY" . "#8BD49C")
-	  ("DONT" . "#EEBB88")	  ("FAIL" . "#D95468")
-	  ("DONE" . "#A0B3C5")	  ("NOTE" . "#5EC4FF")
-	  ("HACK" . "#FFFFFF")	  ("TEMP" . "#FFFFFF")
-	  ("FIXME" . "#D95468"))))
+	'(("HOLD" . "#EE7788")
+	  ("TODO" . "#5EC4FF")
+	  ("NEXT" . "#5EC4FF")
+	  ("THEM" . "#EE7788")
+	  ("PROG" . "#8BD49C")
+	  ("OKAY" . "#8BD49C")
+	  ("DONT" . "#EEBB88")
+	  ("FAIL" . "#D95468")
+	  ("DONE" . "#A0B3C5")
+	  ("NOTE" . "#5EC4FF")
+	  ("HACK" . "#FFFFFF")
+	  ("TEMP" . "#FFFFFF")
+	  ("FIXME" . "#D95468")))
+  :config
+  (global-hl-todo-mode t)
+  )
 
 ;; NOTE Create erc-config.el, and set `erc-password', or comment out the next line.
 (use-package erc-config)
