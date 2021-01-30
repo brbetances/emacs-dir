@@ -26,6 +26,7 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (fringe-mode '(nil . 1))
+(display-battery-mode t)
 (global-hl-line-mode t)
 (show-paren-mode t)
 (setq x-select-enable-clipboard t
