@@ -12,4 +12,9 @@ If buffer-or-name is nil, return the current buffer's mode."
   (buffer-local-value 'major-mode
     (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
 
+(defun insert-datetime ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M")))
+(global-set-key (kbd "C-c t") 'insert-datetime)
+
 (provide 'custom-functions)
