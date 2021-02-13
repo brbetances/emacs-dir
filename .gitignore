@@ -18,3 +18,10 @@
 /custom-modes/#custom-comments.el#
 /custom-modes/.#custom-comments.el
 /forge-database.sqlite
+/snippets/
+/.emacs.desktop
+/.emacs.desktop.lock
+/init.el~
+/init.pdf
+/init.tex
+/init.tex~

@@ -1,5 +1,3 @@
-
-
 ;; Preload Stuff
 (eval-when-compile)
 (require 'use-package)
@@ -9,7 +7,7 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 ;; Surpress Custom
-(setq custom-file (concat user-emacs-directory "/custom.el")) 
+(setq custom-file (concat user-emacs-directory "/custom.el"))
 
 ;; Appearance Settings
 (use-package doom-themes
@@ -37,6 +35,7 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (fringe-mode '(nil . 1))
+(line-number-mode -1)
 (global-hl-line-mode t)
 (show-paren-mode t)
 
@@ -55,6 +54,7 @@
       scroll-up-aggressively 0
       scroll-preserve-screen-position t
       echo-keystrokes 0.1
+      mode-line-percent-position nil
       suggest-key-bindings nil)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq browser-url-browser-function 'browse-url-generic
@@ -130,8 +130,21 @@
   )
 
 ;; Doom Modeline Settings
+(use-package all-the-icons)
 (use-package doom-modeline
   :ensure t
+  :config
+  (setq doom-modeline-height 25
+	doom-modeline-bar-width 3
+	doom-modeline-window-width-limit fill-column
+	doom-modeline-project-detection 'project
+	doom-modeline-buffer-file-name-style 'relative-to-project
+	doom-modeline-icon (display-graphic-p)
+	doom-modeline-continuous-word-count-modes '(org-mode)
+	doom-modeline-buffer-encoding nil
+	doom-modeline-workspace-name nil
+	doom-modeline-persp-name nil
+	doom-modeline-lsp nil)
   :hook (after-init . doom-modeline-mode))
 
 ;;IBuffer Settings
@@ -322,7 +335,7 @@
 	erc-server "irc.freenode.net"
 	erc-port 6667
 	erc-timestamp-format "[%H:%M] "
-        erc-track-showcount t
+;;      erc-track-showcount t
 	erc-timestamp-only-if-changed-flag t
 	erc-insert-timestamp-function 'erc-insert-timestamp-left
 	erc-kill-buffer-on-part t
@@ -336,7 +349,7 @@
 	erc-fill-column 90
 	erc-fill-mode 0
 	erc-truncate-buffer-on-save t
-	erc-track-position-in-mode-line t
+;;	erc-track-position-in-mode-line t
 	erc-header-line-format nil
 	erc-input-line-position -2)
   :config
