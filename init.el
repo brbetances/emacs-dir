@@ -35,7 +35,11 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 (fringe-mode '(nil . 1))
+<<<<<<< HEAD
 (line-number-mode -1)
+=======
+(display-battery-mode t)
+>>>>>>> 1ed362f5a6ab5a26c46ee066079036b3642f6b19
 (global-hl-line-mode t)
 (show-paren-mode t)
 
