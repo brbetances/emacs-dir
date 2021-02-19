@@ -36,7 +36,7 @@
 (tooltip-mode -1)
 (fringe-mode '(nil . 1))
 (line-number-mode -1)
-(display-battery-mode t)
+;;(display-battery-mode t)
 (global-hl-line-mode t)
 (show-paren-mode t)
 
@@ -130,10 +130,20 @@
   (ido-everywhere 1)
   )
 
+;; VTerm Settings
+(use-package vterm
+  :bind
+  ("C-c c v" . vterm-ror))
+
 ;; Doom Modeline Settings
 (use-package all-the-icons)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (use-package doom-modeline
   :ensure t
+  :bind
+  ;; FIXME toggles doom modeline because it sometimes doesn't load properly.
+  ("C-c d m" . doom-modeline-mode)
   :config
   (setq doom-modeline-height 25
 	doom-modeline-bar-width 3
@@ -364,13 +374,6 @@
 						       'rear-nonsticky t
 						       'front-nonsticky t)))
 	erc-join-buffer 'bury)
-  ;; run or raise function
-  (defun erc-run-or-raise (&rest junk)
-    "run-or-raise erc."
-    (interactive)
-    (if (get-buffer "irc.freenode.net:6667")
-	(erc-track-switch-buffer 1)
-      (erc :server erc-server :port erc-port :nick erc-nick :password erc-password)))
   )
 
 ;; Custom Functions
