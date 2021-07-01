@@ -6,6 +6,7 @@
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "custom-modes"))
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
+(require 'custom-functions)
 ;; Surpress Custom
 (setq custom-file (concat user-emacs-directory "/custom.el"))
 
@@ -133,7 +134,9 @@
 ;; VTerm Settings
 (use-package vterm
   :bind
-  ("C-c c v" . vterm-ror))
+  ("C-c C-v v" . vterm-ror)
+  ("C-c C-v c" . vterm-copy-mode)
+  )
 
 ;; Doom Modeline Settings
 (use-package all-the-icons)
