@@ -35,7 +35,7 @@ If buffer-or-name is nil, return the current buffer's mode."
 (defun erc-run-or-raise (&rest junk)
   "run-or-raise erc."
   (interactive)
-  (if (get-buffer "irc.freenode.net:6667")
+  (if (get-buffer "irc.libera.chat:6667")
       (erc-track-switch-buffer 1)
     (erc :server erc-server :port erc-port :nick erc-nick :password erc-password)))
 

@@ -346,8 +346,9 @@
   ("C-c e" . erc-run-or-raise)
   :init
   (setq erc-hide-list '("QUIT" "PART" "JOIN" "NICK")
-	erc-server "irc.freenode.net"
+	erc-server "irc.libera.chat"
 	erc-port 6667
+	erc-nick "syrinx"
 	erc-timestamp-format "[%H:%M] "
 ;;      erc-track-showcount t
 	erc-timestamp-only-if-changed-flag t
