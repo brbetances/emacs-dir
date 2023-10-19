@@ -224,7 +224,7 @@
 	("C-c C-c" . eval-buffer)))
 
 ;; Minor Mode Settings
-(use-package linum-mode
+(use-package display-line-numbers-mode
   :bind
   ("<f12>" . display-line-numbers-mode))
 
