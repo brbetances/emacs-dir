@@ -1,0 +1,40 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/syrinx/" . ".config/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/syrinx/.emacs.d/user-lisp/"
+ "/home/syrinx/"
+ "/home/syrinx/pypns/"
+ "/home/syrinx/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "emacs.service"
+ ".xinitrc"
+ ".stumpwmrc"
+ "."
+ "main.py"
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/syrinx/.emacs.d/user-lisp/" (25904 52887 470712 19000) "custom-functions.el" "./" "../")
+
+ ("/home/syrinx/.emacs.d/" (25905 7944 223746 551000) "custom.el" "elpa/" ".gitignore" "custom-modes/" "./" "custom.el~" "user-lisp/" "auto-save-list/" "ido.last~" "init.el" "transient/" "ido.last" "LICENSE" ".git/" "../" "README")
+
+ ("/home/syrinx/pypns/" (25904 62529 781121 337000) "#main.py#" "./" "../")
+
+ ("/home/syrinx/.config/" (25904 64178 287154 778000) "dconf/" "./" "htop/" "gtk-3.0/" "pulse/" "../")
+
+ ("/home/syrinx/" (25905 8710 994150 446000) ".xinitrc" "stumpwm/" ".zshrc" "stumpwmrc.lisp" ".bash_logout" "config-emacs/" ".sbclrc" ".xinitrc~" "clx-git/" "pypns/" "systems.txt" ".stumpwmrc~" "releases.txt" ".screenlayout/" "#.xsession#" ".fonts/" "./" ".local/" "quicklisp.txt" ".stumpwm.d/" "distinfo.txt" ".emacs.d/" ".xsession~" ".bash_profile" "stumpwm-git/" ".bashrc" ".stumpwmrc" "stumpwm-contrib-git/" ".zcompdump" ".mozilla/" ".config/" ".cache/" "quicklisp/" ".histfile" ".Xauthority" "../" "conf-scripts/" "cl-alexandria-git/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
