@@ -1,5 +1,7 @@
 /home/syrinx/.emacs.d/init.el
 /home/syrinx/.emacs.d/#init.el#
+/home/syrinx/.emacs.d/.git/config
+/home/syrinx/.emacs.d/.git/#config#
 /home/syrinx/.ssh/id_ed25519.pub
 /home/syrinx/.ssh/#id_ed25519.pub#
 /home/syrinx/.xinitrc
